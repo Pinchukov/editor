@@ -1,4 +1,156 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #dfdfdf;
+}
+
+
+.container {
+  width: 1200px;
+  margin: 50px auto;
+
+}
+
+.editor-wrap {
+  height: auto;
+  min-height: 450px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+
+.editor-list-img {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: 100px;
+  padding: 20px;
+}
+.itemPrevImg {
+  line-height: 0;
+  position: relative;
+}
+.btn-remove {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  padding: 0;
+  text-align: center;
+  font-size: 12px;
+  background-color:rgb(236, 117, 117);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.btn-remove:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+  outline: focus-ring-color auto 0px;
+  border: 0;
+}
+.btn-remove:hover {
+  background-color: red;
+}
+
+.itemPrevImg img {
+  width: 100%;
+  max-height: 100px;
+}
+.itemPrevImg img:hover {
+  opacity: .8;
+  transition: all .7s;
+}
+.editor-menu {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+
+
+
+@media only screen and (max-width : 1220px) {}
+
+
+
+
+.animationRotateStart {
+  animation-name: rotateXbegin;
+  animation-duration: 0.5s;
+}
+@keyframes rotateXbegin {
+  from {transform: rotateX(90deg)}
+  to {transform: rotateX(10deg)}
+}
+
+.animationRotateFinish {
+  animation-name: rotateXEnd;
+  animation-duration: 0.5s;
+}
+@keyframes rotateXEnd {
+  from {transform: rotateX(10deg)}
+  to {transform: rotateX(90deg)}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Context Menu */ 
+.contextMenu {
+  position: absolute;
+  background-color: #fff;
+  z-index: 2;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+.contextMenu ul {
+  margin: 0;
+  padding: 0;
+}
+.contextMenu li {
+  margin: 0;
+  padding: 10px 20px;
+  list-style-type: none;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.contextMenu li:hover {
+  background-color: #dcdcdc;
+}
+.contextMenu .btn-remove {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  border: none;
+  background-color:rgb(236, 117, 117);
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  border-radius: 0;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+.contextMenu .btn-remove:hover {
+  background-color: red;
+}
+.contextMenu .btn-remove:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+  outline: focus-ring-color auto 0px;
 }
