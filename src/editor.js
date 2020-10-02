@@ -2,6 +2,7 @@
 // https://developer.mozilla.org/ru/docs/Web/API/FileReader/readAsDataURL
 
 // https://www.youtube.com/watch?v=-AR-6X_98rM  !!!!! Cool!!!!
+// посмотрю! уже открыл)))
 
 jsEditor()
 function jsEditor() {
