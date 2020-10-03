@@ -1,12 +1,8 @@
-// https://learn.javascript.ru/file
-// https://developer.mozilla.org/ru/docs/Web/API/FileReader/readAsDataURL
-
 // https://www.youtube.com/watch?v=-AR-6X_98rM  !!!!! Cool!!!!
-// обязательно посмотрю!
 
 jsEditor()
 function jsEditor() {
-    const editorWrap = document.querySelector('.editor-wrap');
+    const editorInfo = document.querySelector('.editor-info');
     const editorAddInput = document.querySelector('.editor-wrap input[type="file"]');
     editorAddInput.addEventListener('change', (e) => addImg(e));
 
@@ -23,6 +19,7 @@ function jsEditor() {
                 document.querySelector('.editor-list-img').insertAdjacentHTML('afterBegin', prevImg);
                 removeImg();
                 outputInfo(); // To display information about the image
+                addDivBottom(); // Insert a new bottom block with the publish button
             };
             reader.readAsDataURL(files);
         };
@@ -35,6 +32,7 @@ function jsEditor() {
                 btnRemove.parentNode.classList.add('animationRotateFinish'); // animation
                 setTimeout(() => {
                     btnRemove.parentNode.remove();
+                    removeElements();
                 }, 500); // 500 time animation
             });
         };
@@ -43,9 +41,9 @@ function jsEditor() {
 
 
     // Context Menu
-    const contextMenuAddList = `<li>Add Images</li>`;
-
+/*     const contextMenuAddList = `<li>Add Images</li>`;
     editorWrap.addEventListener('contextmenu', contextMenuAddImg);
+
     function contextMenuAddImg(e) {
         e.preventDefault(); // remove default menu
         const contextMenu = document.querySelector('.contextMenu');
@@ -53,16 +51,15 @@ function jsEditor() {
         contextMenu ? (contextMenu.remove(), addContextMenu) : addContextMenu; // Check if the menu is already open
         contextMenuClose();
     };
+
     function contextMenuClose() {
         document.querySelector('.contextMenu .btn-remove').addEventListener('click', () => {
             document.querySelector('.contextMenu').remove();
         });
-    };
-
+    }; */
 
 
     function outputInfo() {
-        const editorInfo = document.querySelector('.editor-info');
         const itemPrevImg = document.querySelectorAll('.item-prev-img');
         itemPrevImg.forEach((items) => {
             const lastModifiedDate = items.dataset.lastmodifieddate;
@@ -74,6 +71,21 @@ function jsEditor() {
         });
     };
 
+    function addDivBottom() {
+        const btnNext = `<button class="btn btn-black">Publish</button>`;
+        if(!document.querySelector('.editor-bottom')) {
+            document.querySelector('.editor-list-img').insertAdjacentHTML('afterEnd', `<div class="editor-bottom">${btnNext}</div>`);
+        };
+        document.querySelector('.editor-bottom').addEventListener('click', () => alert('Sending images for publication'));
+    };
+
+
+    function removeElements() {
+        if(!document.querySelector('.item-prev-img')) {
+            document.querySelector('.editor-bottom').remove(); // remove div.editor-bottom
+            editorInfo.innerHTML = ''; // clean div.editor-info
+        };
+    };
 
 
 

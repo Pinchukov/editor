@@ -11,9 +11,37 @@ body {
 
 }
 
+.btn {
+  border: none;
+  padding: 15px 30px;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: ease-out 0.8s;
+}
+.btn:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+  outline: focus-ring-color auto 0px;
+  border: 0;
+}
+.btn-black {
+  background-color: #000;
+  color: #fff;
+}
+.btn-black:hover {
+  opacity: .7;
+}
+.btn-black:active {
+  opacity: .5;
+}
+ 
+
+
+
+
+
 .editor-wrap {
   height: auto;
-  min-height: 450px;
   background-color: #fff;
   border: 1px solid #ccc;
 }
@@ -40,6 +68,7 @@ body {
   grid-template-columns: repeat(8, 1fr);
   grid-auto-rows: 100px;
   padding: 20px;
+  min-height: 200px;
 }
 .item-prev-img {
   line-height: 0;
@@ -81,7 +110,10 @@ body {
 }
 
 
-
+.editor-bottom {
+  padding: 20px;
+  border-top: 1px solid #ccc;
+}
 
 
 
