@@ -10,20 +10,36 @@ function jsEditor() {
     editorAddInput.addEventListener('change', (e) => addImg(e));
 
     function addImg(e) {
+
+       
+
         for (const files of e.target.files) {
+
+            console.log(files.name)
+            console.log(files.lastModifiedDate)
+            console.log(files.size)
+
             const reader = new FileReader();
             reader.onloadend = function () {
                 const img = new Image();
                 img.src = reader.result;
-                const prevImg = `<div class="item-prev-img animationRotateStart" data-lastmodifieddate="${files.lastModifiedDate}" data-size="${files.size}" data-type="${files.type}">
+                const prevImg = `<div class="item-prev-img animationRotateStart" data-lastmodifieddate="${e.target.files[0].lastModifiedDate}" data-size="${e.target.files[0].size}" data-type="${e.target.files[0].type}">
                                     <button class="btn-remove-img">&#10005;</button>
-                                    <img src="${img.src}" alt="${files.lastModifiedDate}" title="last Modified Date: ${files.lastModifiedDate}">
+                                    <img src="${img.src}" alt="${e.target.files[0].lastModifiedDate}" title="last Modified Date: ${e.target.files[0].lastModifiedDate}">
                              </div>`;
                 document.querySelector('.editor-list-img').insertAdjacentHTML('afterBegin', prevImg);
                 removeImg();
                 outputInfo(); // To display information about the image
             };
             reader.readAsDataURL(files);
+
+
+
+
+
+
+
+
         };
     };
 
@@ -41,8 +57,10 @@ function jsEditor() {
 
 
 
-    // Context Menu
-    const contextMenuAddList = `<li>Add Images</li>`;
+/*     // Context Menu
+    const contextMenuAddList = `<li>Add Images</li>
+                                <li>Herring under a fur coat</li>
+                                <li>Fried bacon with potatoes</li>`;
 
     editorWrap.addEventListener('contextmenu', contextMenuAddImg);
     function contextMenuAddImg(e) {
@@ -52,26 +70,37 @@ function jsEditor() {
         contextMenu ? (contextMenu.remove(), addContextMenu) : addContextMenu; // Check if the menu is already open
         contextMenuClose();
     };
-    function contextMenuClose() {
+   function contextMenuClose() {
         document.querySelector('.contextMenu .btn-remove').addEventListener('click', () => {
             document.querySelector('.contextMenu').remove();
         });
-    };
+    }; */
 
 
 
-    function outputInfo() {
-        const editorInfo = document.querySelector('.editor-info');
-        const itemPrevImg = document.querySelectorAll('.item-prev-img');
-        itemPrevImg.forEach((items) => {
-            const lastModifiedDate = items.dataset.lastmodifieddate;
-            const size = Math.round(items.dataset.size / 1024); // converting bytes to kilobytes and rounded up to whole number
-            const type = items.dataset.type;
-            items.addEventListener('mouseover', () => {
-                editorInfo.innerHTML = `Size: ${size}Kb. | Type: ${type} | Last Modified Date: ${lastModifiedDate}`;
-            });
+
+
+
+function outputInfo() {
+
+    const editorInfo = document.querySelector('.editor-info');
+    const itemPrevImg = document.querySelectorAll('.item-prev-img');
+
+
+    itemPrevImg.forEach((items) => {
+
+        const lastModifiedDate = items.dataset.lastmodifieddate;
+        const size = items.dataset.size;
+        const type = items.dataset.type;
+
+        items.addEventListener('mouseover', () => {
+            /* console.log( items.dataset.lastmodifieddate  ) */
+            editorInfo.innerHTML = `Size: ${size}Mb. | Type: ${type} | Last Modified Date: ${lastModifiedDate}`;
         });
-    };
+    });
+};
+
+
 
 
 
