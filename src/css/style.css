@@ -3,14 +3,10 @@ body {
   padding: 0;
   background-color: #dfdfdf;
 }
-
-
 .container {
   width: 1200px;
   margin: 50px auto;
-
 }
-
 .btn {
   border: none;
   padding: 15px 30px;
@@ -36,32 +32,21 @@ body {
 }
  
 
-
-
-
-
 .editor-wrap {
   height: auto;
   background-color: #fff;
   border: 1px solid #ccc;
 }
-
-
 .editor-header {
   padding: 20px;
   border-bottom: 1px solid #ccc;
   display: flex;
   flex-wrap: wrap;
 }
-
-
 .editor-info {
   flex-grow: 1;
   text-align: right;
 }
-
-
-
 .editor-list-img {
   display: grid;
   grid-gap: 20px;
@@ -99,7 +84,6 @@ body {
 .btn-remove-img:hover {
   background-color: red;
 }
-
 .item-prev-img img {
   width: 100%;
   max-height: 100px;
@@ -114,11 +98,6 @@ body {
   padding: 20px;
   border-top: 1px solid #ccc;
 }
-
-
-
-
-@media only screen and (max-width : 1220px) {}
 
 
 
@@ -150,58 +129,4 @@ body {
 @keyframes translateY {
   from {transform:translateY(0px);}
   to {transform:translateY(100px);}
-}
-
-
-
-
-
-
-
-
-
-
-
-/* Context Menu */ 
-.contextMenu {
-  position: absolute;
-  background-color: #fff;
-  z-index: 2;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-}
-.contextMenu ul {
-  margin: 0;
-  padding: 0;
-}
-.contextMenu li {
-  margin: 0;
-  padding: 10px 20px;
-  list-style-type: none;
-  cursor: pointer;
-  transition: all 0.5s ease;
-}
-.contextMenu li:hover {
-  background-color: #dcdcdc;
-}
-.contextMenu .btn-remove {
-  position: absolute;
-  top: -30px;
-  right: 0;
-  border: none;
-  background-color:rgb(236, 117, 117);
-  color: #fff;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  cursor: pointer;
-  border-radius: 0;
-  text-align: center;
-  transition: all 0.5s ease;
-}
-.contextMenu .btn-remove:hover {
-  background-color: red;
-}
-.contextMenu .btn-remove:focus {
-  outline: -webkit-focus-ring-color auto 0px;
-  outline: focus-ring-color auto 0px;
 }

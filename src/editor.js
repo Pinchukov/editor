@@ -1,5 +1,3 @@
-// https://www.youtube.com/watch?v=-AR-6X_98rM  !!!!! Cool!!!!
-
 jsEditor()
 function jsEditor() {
     const editorInfo = document.querySelector('.editor-info');
@@ -19,10 +17,11 @@ function jsEditor() {
                 document.querySelector('.editor-list-img').insertAdjacentHTML('afterBegin', prevImg);
                 removeImg();
                 outputInfo(); // To display information about the image
-                addDivBottom(); // Insert a new bottom block with the publish button
+                
             };
             reader.readAsDataURL(files);
         };
+        addDivBottom(); // Insert a new bottom block with the publish button
     };
 
     function removeImg() {
@@ -37,27 +36,6 @@ function jsEditor() {
             });
         };
     };
-
-
-
-    // Context Menu
-/*     const contextMenuAddList = `<li>Add Images</li>`;
-    editorWrap.addEventListener('contextmenu', contextMenuAddImg);
-
-    function contextMenuAddImg(e) {
-        e.preventDefault(); // remove default menu
-        const contextMenu = document.querySelector('.contextMenu');
-        const addContextMenu = editorWrap.insertAdjacentHTML('beforebegin', `<nav class="contextMenu" style="top: ${e.clientY}px; left: ${e.clientX}px"><button class="btn-remove">&#10006;</button><ul>${contextMenuAddList}</ul></nav>`); // container context menu
-        contextMenu ? (contextMenu.remove(), addContextMenu) : addContextMenu; // Check if the menu is already open
-        contextMenuClose();
-    };
-
-    function contextMenuClose() {
-        document.querySelector('.contextMenu .btn-remove').addEventListener('click', () => {
-            document.querySelector('.contextMenu').remove();
-        });
-    }; */
-
 
     function outputInfo() {
         const itemPrevImg = document.querySelectorAll('.item-prev-img');
@@ -79,15 +57,12 @@ function jsEditor() {
         document.querySelector('.editor-bottom').addEventListener('click', () => alert('Sending images for publication'));
     };
 
-
     function removeElements() {
         if(!document.querySelector('.item-prev-img')) {
             document.querySelector('.editor-bottom').remove(); // remove div.editor-bottom
             editorInfo.innerHTML = ''; // clean div.editor-info
         };
     };
-
-
 
 
 };
